@@ -5,7 +5,13 @@
 </h1>
 
 <p>
+  タスク内容：
   <%= @task.content %>
+</p>
+
+<p>
+  進捗：
+  <%= @task.status %>
 </p>
 
 <%= link_to '一覧に戻る', tasks_path %>
