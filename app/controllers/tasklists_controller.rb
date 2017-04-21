@@ -1,4 +1,7 @@
 class TasklistsController < ApplicationController
+  before_action :require_user_logged_in
+  before_action :correct_user, only: [:edit, :update, :destroy, :show]
+  
   def index
     if logged_in?
       @tasklists = current_user.tasklists.page(params[:page])
@@ -55,5 +58,13 @@ class TasklistsController < ApplicationController
   # Strong Parameter
   def tasklist_params
     params.require(:tasklist).permit(:content)
+  end
+  
+  def correct_user
+    @tasklist = current_user.tasklists.find_by(id: params[:id])
+    unless @tasklist
+      flash[:danger] = '権限がありません'
+      redirect_to root_path
+    end
   end
 end
