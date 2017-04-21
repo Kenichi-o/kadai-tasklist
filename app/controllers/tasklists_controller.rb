@@ -1,5 +1,5 @@
 class TasklistsController < ApplicationController
-  before_action :require_user_logged_in
+  before_action :require_user_logged_in, only: [:create, :destroy, :update]
   before_action :correct_user, only: [:edit, :update, :destroy, :show]
   
   def index
