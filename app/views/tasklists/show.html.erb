@@ -1,0 +1,14 @@
+<h1>タスクの詳細ページ</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>タスク</th>
+    <td>
+<%= @tasklist.content %>
+</td>
+  </tr>
+</table>
+
+<%= link_to 'このタスクを編集する', edit_tasklist_path(@tasklist), class: 'btn btn-default'  %>
+
+<%= link_to 'このタスクを削除する', @tasklist, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger'  %>

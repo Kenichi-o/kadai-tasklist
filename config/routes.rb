@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'tasklists/destroy'
 
-  root to: 'toppages#index'
+  root to: 'tasklists#index'
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
